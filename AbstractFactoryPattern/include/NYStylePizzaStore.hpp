@@ -12,7 +12,6 @@ class NYStylePizzaStore : public PizzaStore
 	~NYStylePizzaStore();
 	Pizza * createPizza(std::string type);
     private:
-//	PizzaIngredientFactory * m_factory;
 }; 
 
 #endif
