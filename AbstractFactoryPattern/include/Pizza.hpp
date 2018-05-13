@@ -18,21 +18,7 @@ typedef std::list<Veggies *>::iterator IterVeggies;
 class Pizza
 {
     public:
-	virtual ~Pizza()
-	{ 
-/*	    m_toppings.clear();
-
-	    std::list<Veggies *>::iterator it = m_veg_list.begin();
-	    while(it != m_veg_list.end())
-		delete it;
-	    m_veg_list.clear();
-
-	    delete m_ingre_dough;
-	    delete m_ingre_sauce;
-	    delete m_ingre_cheese;
-	    delete m_ingre_pepperoni;
-	    delete m_ingre_clams;*/	    
-	}
+	virtual ~Pizza(){}
     	
 	virtual void prepare()
 	{	
