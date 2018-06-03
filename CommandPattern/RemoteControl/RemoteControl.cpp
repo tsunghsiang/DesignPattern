@@ -24,7 +24,7 @@ void RemoteControl::OnButtonPushed(int slot_idx)
         return;
     }
     
-    if(m_on_cmds[slot_idx] != nullptr)
+    if(m_on_cmds[slot_idx] != NULL)
         m_on_cmds[slot_idx]->execute();
 }
 
@@ -36,6 +36,6 @@ void RemoteControl::OffButtonPushed(int slot_idx)
         return;
     }
     
-    if(m_off_cmds[slot_idx] != nullptr)
+    if(m_off_cmds[slot_idx] != NULL)
         m_off_cmds[slot_idx]->execute();
 }
