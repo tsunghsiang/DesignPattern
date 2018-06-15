@@ -10,6 +10,7 @@ class GarageDoorOpenCommand : public Command
     public:
         GarageDoorOpenCommand(SPTR_GarageDoor garage_door_ptr);
         void execute();
+        void undo();
     private:
         SPTR_GarageDoor m_garage_door_ptr;
 };

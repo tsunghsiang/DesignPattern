@@ -10,6 +10,7 @@ class StereoRadioOnCommand : public Command
     public:
         StereoRadioOnCommand(SPTR_Stereo stereo);
         void execute();
+        void undo();
     private:
         SPTR_Stereo m_stereo;
 };

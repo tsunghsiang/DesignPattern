@@ -6,3 +6,8 @@ void GarageDoorLightOffCommand::execute()
 {
     m_garage_door_ptr->LightOff();
 }
+
+void GarageDoorLightOffCommand::undo()
+{
+    m_garage_door_ptr->LightOn();
+}

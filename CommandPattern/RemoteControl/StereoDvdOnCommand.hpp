@@ -10,6 +10,7 @@ class StereoDvdOnCommand : public Command
     public:
         StereoDvdOnCommand(SPTR_Stereo stereo);
         void execute();
+        void undo();
     private:
         SPTR_Stereo m_stereo;
 };

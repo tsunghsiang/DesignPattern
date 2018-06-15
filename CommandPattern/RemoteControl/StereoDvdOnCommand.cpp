@@ -8,3 +8,8 @@ void StereoDvdOnCommand::execute()
     m_stereo->SetDvd();
     m_stereo->SetVolume(25);
 }
+
+void StereoDvdOnCommand::undo()
+{
+    m_stereo->Off();
+}

@@ -8,3 +8,8 @@ void StereoCdOnCommand::execute()
     m_stereo->SetCD();
     m_stereo->SetVolume(11);
 }
+
+void StereoCdOnCommand::undo()
+{
+    m_stereo->Off();
+}

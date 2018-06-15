@@ -10,6 +10,7 @@ class StereoRadioOffCommand : public Command
     public:
         StereoRadioOffCommand(SPTR_Stereo stereo);
         void execute();
+        void undo();
     private:
         SPTR_Stereo m_stereo;
 };

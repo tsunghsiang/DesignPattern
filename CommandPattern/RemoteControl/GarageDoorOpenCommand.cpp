@@ -6,3 +6,8 @@ void GarageDoorOpenCommand::execute()
 {
     m_garage_door_ptr->Up();
 }
+
+void GarageDoorOpenCommand::undo()
+{
+    m_garage_door_ptr->Down();
+}

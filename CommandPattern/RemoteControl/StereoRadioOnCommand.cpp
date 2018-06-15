@@ -8,3 +8,8 @@ void StereoRadioOnCommand::execute()
     m_stereo->SetRadio();
     m_stereo->SetVolume(35);
 }
+
+void StereoRadioOnCommand::undo()
+{
+    m_stereo->Off();
+}

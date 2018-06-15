@@ -3,7 +3,9 @@
 #include "LightOnCommand.hpp"
 #include "LightOffCommand.hpp"
 #include "CeilingFan.hpp"
-#include "CeilingFanOnCommand.hpp"
+#include "CeilingFanHighCommand.hpp"
+#include "CeilingFanMediumCommand.hpp"
+#include "CeilingFanLowCommand.hpp"
 #include "CeilingFanOffCommand.hpp"
 #include "GarageDoor.hpp"
 #include "GarageDoorOpenCommand.hpp"
@@ -35,7 +37,7 @@ int main(int argc, char * argv[])
 
     /* Set CeilingFan for Living Room */
     SPTR_CeilingFan ceilingFan(std::make_shared<CeilingFan>("Living Room"));
-    SPTR_CeilingFanOnCommand ceilingFanOnCmd(std::make_shared<CeilingFanOnCommand>(ceilingFan));
+    SPTR_CeilingFanHighCommand ceilingFanHighCmd(std::make_shared<CeilingFanHighCommand>(ceilingFan));
     SPTR_CeilingFanOffCommand ceilingFanOffCmd(std::make_shared<CeilingFanOffCommand>(ceilingFan));
 
     /* Set GarageDoor for Dining Room */
@@ -56,7 +58,7 @@ int main(int argc, char * argv[])
 
     rc->SetCommand(0, roomLightOnCmd, roomLightOffCmd);
     rc->SetCommand(1, kitchenLightOnCmd, kitchenLightOffCmd);
-    rc->SetCommand(2, ceilingFanOnCmd, ceilingFanOffCmd);
+    rc->SetCommand(2, ceilingFanHighCmd, ceilingFanOffCmd);
     rc->SetCommand(3, garageOpenCmd, garageCloseCmd);
     rc->SetCommand(4, garageLightOnCmd, garageLightOffCmd);
     rc->SetCommand(5, stereoCdOnCmd, stereoCdOffCmd);
@@ -66,18 +68,25 @@ int main(int argc, char * argv[])
     /* Press On and Off Button */
     rc->OnButtonPushed(0);
     rc->OffButtonPushed(0);
+    rc->UndoButtonPushed();
     rc->OnButtonPushed(1);
     rc->OffButtonPushed(1);
+    rc->UndoButtonPushed();
     rc->OnButtonPushed(2);
     rc->OffButtonPushed(2);
+    rc->UndoButtonPushed();
     rc->OnButtonPushed(3);
     rc->OffButtonPushed(3);
+    rc->UndoButtonPushed();
     rc->OnButtonPushed(4);
     rc->OffButtonPushed(4);
+    rc->UndoButtonPushed();
     rc->OnButtonPushed(5);
     rc->OffButtonPushed(5);
+    rc->UndoButtonPushed();
     rc->OnButtonPushed(6);
     rc->OffButtonPushed(6);
+    rc->UndoButtonPushed();
     rc->OnButtonPushed(7);
     rc->OffButtonPushed(7);
 
