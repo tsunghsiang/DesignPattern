@@ -6,3 +6,8 @@ void LightOnCommand::execute()
 {
     m_light_ptr->On();
 }
+
+void LightOnCommand::undo()
+{
+    m_light_ptr->Off();
+}

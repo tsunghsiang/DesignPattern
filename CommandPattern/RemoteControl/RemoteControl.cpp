@@ -25,7 +25,10 @@ void RemoteControl::OnButtonPushed(int slot_idx)
     }
     
     if(m_on_cmds[slot_idx] != NULL)
+    {
         m_on_cmds[slot_idx]->execute();
+        m_undo_cmd = m_on_cmds[slot_idx];
+    }
 }
 
 void RemoteControl::OffButtonPushed(int slot_idx)
@@ -37,5 +40,14 @@ void RemoteControl::OffButtonPushed(int slot_idx)
     }
     
     if(m_off_cmds[slot_idx] != NULL)
+    {
         m_off_cmds[slot_idx]->execute();
+        m_undo_cmd = m_off_cmds[slot_idx];
+    }
+}
+
+void RemoteControl::UndoButtonPushed()
+{
+    if(m_undo_cmd != NULL)
+        m_undo_cmd->undo();
 }

@@ -11,6 +11,7 @@ class LightOffCommand : public Command
     public:
         LightOffCommand(SPTR_Light light_ptr);
         void execute();
+        void undo();
     private:
         SPTR_Light m_light_ptr;
 }; 

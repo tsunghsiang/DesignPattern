@@ -10,8 +10,10 @@ class CeilingFanOffCommand : public Command
     public:
         CeilingFanOffCommand(SPTR_CeilingFan ceiling_fan_ptr);
         void execute();
+        void undo();
     private:
         SPTR_CeilingFan m_ceiling_fan_ptr;
+        CeilingFan::State m_prev_speed;
 };
 
 using SPTR_CeilingFanOffCommand = std::shared_ptr<CeilingFanOffCommand>;

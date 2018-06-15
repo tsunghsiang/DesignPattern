@@ -14,9 +14,11 @@ class RemoteControl
         void SetCommand(int slot_idx, SPTR_Command on_cmd, SPTR_Command off_cmd);
         void OnButtonPushed(int slot_idx);
         void OffButtonPushed(int slot_idx);
+        void UndoButtonPushed();
     private:
         SPTR_Command m_on_cmds[SLOT_NUM];
         SPTR_Command m_off_cmds[SLOT_NUM];
+        SPTR_Command m_undo_cmd;
 };
 
 #endif

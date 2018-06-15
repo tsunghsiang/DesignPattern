@@ -8,12 +8,18 @@
 class CeilingFan
 {
     public:
+        enum State { HIGH, MEDIUM, LOW, OFF };
+
         CeilingFan(std::string location = "");
         ~CeilingFan();
-        void On();
+        void High();
+        void Medium();
+        void Low();
         void Off();
+        State GetSpeed();
     private:
         std::string m_location;
+        State m_speed;
 };
 
 using SPTR_CeilingFan = std::shared_ptr<CeilingFan>;

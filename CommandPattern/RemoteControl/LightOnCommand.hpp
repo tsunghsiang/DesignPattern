@@ -11,6 +11,7 @@ class LightOnCommand : public Command
     public:
         LightOnCommand(SPTR_Light light_ptr);
         void execute();
+        void undo();
     private:
         SPTR_Light m_light_ptr;
 }; 

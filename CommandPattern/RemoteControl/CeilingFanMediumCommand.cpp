@@ -1,14 +1,14 @@
-#include "CeilingFanOffCommand.hpp"
+#include "CeilingFanMediumCommand.hpp"
 
-CeilingFanOffCommand::CeilingFanOffCommand(SPTR_CeilingFan ceiling_fan_ptr):m_ceiling_fan_ptr(ceiling_fan_ptr){}
+CeilingFanMediumCommand::CeilingFanMediumCommand(SPTR_CeilingFan ceiling_fan_ptr):m_ceiling_fan_ptr(ceiling_fan_ptr){}
 
-void CeilingFanOffCommand::execute()
+void CeilingFanMediumCommand::execute()
 {
     m_prev_speed = m_ceiling_fan_ptr->GetSpeed();
-    m_ceiling_fan_ptr->Off();
+    m_ceiling_fan_ptr->Medium();
 }
 
-void CeilingFanOffCommand::undo()
+void CeilingFanMediumCommand::undo()
 {
     switch(m_prev_speed)
     {
@@ -21,7 +21,7 @@ void CeilingFanOffCommand::undo()
         case CeilingFan::State::LOW:
             m_ceiling_fan_ptr->Low();
             break;
-        case CeilingFan::State::OFF:
+        case CeilingFan::OFF:
             m_ceiling_fan_ptr->Off();
             break;
         default:
