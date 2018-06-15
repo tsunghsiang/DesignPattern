@@ -4,7 +4,7 @@
 #include "Command.hpp"
 #include <iostream>
 
-#define SLOT_NUM 7
+#define SLOT_NUM 8
 
 class RemoteControl
 {
