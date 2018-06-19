@@ -19,6 +19,7 @@
 #include "StereoCdOffCommand.hpp"
 #include "StereoDvdOnCommand.hpp"
 #include "StereoDvdOffCommand.hpp"
+#include "MacroCommand.hpp"
 #include "RemoteControl.hpp"
 
 int main(int argc, char * argv[])
@@ -65,30 +66,59 @@ int main(int argc, char * argv[])
     rc->SetCommand(6, stereoDvdOnCmd, stereoDvdOffCmd);
     rc->SetCommand(7, stereoRadioOnCmd, stereoRadioOffCmd);
 
-    /* Press On and Off Button */
+    /* Press On and Off Button One at a Time*/
+    std::cout << "----------------- Press On and Off Button One at a Time ----------------\n\n";
     rc->OnButtonPushed(0);
     rc->OffButtonPushed(0);
-    rc->UndoButtonPushed();
+//    rc->UndoButtonPushed();
     rc->OnButtonPushed(1);
     rc->OffButtonPushed(1);
-    rc->UndoButtonPushed();
+//   rc->UndoButtonPushed();
     rc->OnButtonPushed(2);
     rc->OffButtonPushed(2);
-    rc->UndoButtonPushed();
+//    rc->UndoButtonPushed();
     rc->OnButtonPushed(3);
     rc->OffButtonPushed(3);
-    rc->UndoButtonPushed();
+//    rc->UndoButtonPushed();
     rc->OnButtonPushed(4);
     rc->OffButtonPushed(4);
-    rc->UndoButtonPushed();
+//    rc->UndoButtonPushed();
     rc->OnButtonPushed(5);
     rc->OffButtonPushed(5);
-    rc->UndoButtonPushed();
+//    rc->UndoButtonPushed();
     rc->OnButtonPushed(6);
     rc->OffButtonPushed(6);
-    rc->UndoButtonPushed();
+//    rc->UndoButtonPushed();
     rc->OnButtonPushed(7);
     rc->OffButtonPushed(7);
+//    rc->UndoButtonPushed();
+
+    /* Party Mode */
+    std::list<SPTR_Command> partyOnCmd, partyOffCmd;
+    std::cout << "\n---------------- Step into Party Mode ----------------\n\n";
+    
+    partyOnCmd.push_back(roomLightOnCmd);
+    partyOnCmd.push_back(ceilingFanHighCmd);
+    partyOnCmd.push_back(garageOpenCmd);
+    partyOnCmd.push_back(garageLightOnCmd);
+    partyOnCmd.push_back(stereoRadioOnCmd);
+    
+    partyOffCmd.push_back(roomLightOffCmd);
+    partyOffCmd.push_back(ceilingFanOffCmd);
+    partyOffCmd.push_back(garageCloseCmd);
+    partyOffCmd.push_back(garageLightOffCmd);
+    partyOffCmd.push_back(stereoRadioOffCmd);
+    
+    SPTR_MacroCommand partyOnMacro(std::make_shared<MacroCommand>(partyOnCmd));
+    SPTR_MacroCommand partyOffMacro(std::make_shared<MacroCommand>(partyOffCmd));
+
+    rc->SetCommand(8, partyOnMacro, partyOffMacro);
+    std::cout << "--- Pushing Macro On ---\n\n";
+    rc->OnButtonPushed(8);
+    std::cout << "\n--- Pushing Macro Off ---\n\n";
+    rc->OffButtonPushed(8);
+    std::cout << "\n--- Pusing Macro Undo ---\n\n";
+    rc->UndoButtonPushed();
 
     delete rc;
     return 0;
