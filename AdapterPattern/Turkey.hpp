@@ -6,8 +6,8 @@
 class Turkey
 {
 	public:
-		virtual void gobble();
-		virtual void fly();
+		virtual void gobble() = 0;
+		virtual void fly() = 0;
 	private:
 };
 

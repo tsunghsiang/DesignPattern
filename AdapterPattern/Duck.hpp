@@ -7,8 +7,8 @@
 class Duck
 {
 	public:
-		virtual void quack();
-		virtual void fly();
+		virtual void quack() = 0;
+		virtual void fly() = 0;
 	private:
 };
 
