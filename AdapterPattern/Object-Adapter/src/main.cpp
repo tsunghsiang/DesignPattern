@@ -1,5 +1,6 @@
 /*
- * The source aims to test the adapter pattern, "TurkeyAdapter"
+ * The source aims to test the adapter patterns, "TurkeyAdapter" and "DuckAdapter".
+ * Both in this example are Object Adapters.
  * */
 
 #include "Duck.hpp"
