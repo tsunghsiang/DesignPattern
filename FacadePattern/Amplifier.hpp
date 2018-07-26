@@ -30,4 +30,6 @@ class Amplifier
 		SPTR_Cd m_cd;		
 };
 
+using SPTR_Amplifier = std::shared_ptr<Amplifier>;
+
 #endif
