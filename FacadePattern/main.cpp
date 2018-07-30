@@ -13,9 +13,22 @@ int main(int argc, char * argv[])
 	auto lights    = std::make_shared<TheaterLights>("Theater Ceiling Lights");
 
 	/* watch a movie here */
+	std::cout << "---------- Watch a movie 'Titanic' ----------" << std::endl;
 	auto home      = std::make_shared<HomeTheaterFacade>(amp, tuner, dvd, cd, projector, lights, screen, popper);
 	home->WatchMovie("Titanic");
 	home->EndMovie();	
+	std::cout << "\n\n";
+
+	/* listen to cd */
+	std::cout << "---------- Listen to CD 'Despacito' ---------" << std::endl;
+	home->ListenToCd("Despacito");
+	home->EndCd();
+	std::cout << "\n\n";
+
+	/* listen to radio */
+	std::cout << "-------------- Listen to Radio --------------" << std::endl;
+	home->ListenToRadio(20);
+	home->EndRadio();
 
 	return 0;
 }

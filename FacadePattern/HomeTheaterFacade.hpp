@@ -37,10 +37,10 @@ class HomeTheaterFacade
 		/* member functions */
 		void WatchMovie(std::string movie);
 		void EndMovie();
-		//void ListenToCd(std::string title);
-		//void EndCd();
-		//void ListenToRadio(double frequency);
-		//void EndRadio();
+		void ListenToCd(std::string title);
+		void EndCd();
+		void ListenToRadio(double frequency);
+		void EndRadio();
 	private:
 		SPTR_Amplifier m_amp;
 		SPTR_Tuner m_tuner;

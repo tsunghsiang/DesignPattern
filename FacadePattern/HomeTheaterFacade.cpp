@@ -29,3 +29,41 @@ void HomeTheaterFacade::EndMovie()
 	m_dvd->Eject();
 	m_dvd->Off();
 }
+
+void HomeTheaterFacade::ListenToCd(std::string title)
+{
+	std::cout << "Get ready for an audiopile experience ..." << std::endl;
+	m_lights->On();
+	m_amp->On();
+	m_amp->SetVolume(5);
+	m_amp->SetCd(m_cd);
+	m_amp->SetStereoSound();
+	m_cd->On();
+	m_cd->Play(title);
+}
+
+void HomeTheaterFacade::EndCd()
+{
+	std::cout << "Shutting down CD ..." << std::endl;
+	m_amp->Off();
+	m_amp->SetCd(m_cd);
+	m_cd->Eject();
+	m_cd->Off();
+}
+
+void HomeTheaterFacade::ListenToRadio(double frequency)
+{
+	std::cout << "Tuning in the airwaves ..." << std::endl;
+	m_tuner->On();
+	m_tuner->SetFrequency(frequency);
+	m_amp->On();
+	m_amp->SetVolume(5);
+	m_amp->SetTuner(m_tuner);
+}
+
+void HomeTheaterFacade::EndRadio()
+{
+	std::cout << "Shutting down the tuner ..." << std::endl;
+	m_tuner->Off();
+	m_amp->Off();
+}
