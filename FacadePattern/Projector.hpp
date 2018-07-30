@@ -10,7 +10,7 @@ class Projector
 {
 	public:
 		/* constructor */
-		Projector(std::string description, SPTR_Dvd dvd):m_description(description), m_dvd(dvd){}
+		Projector(std::string description, SPTR_Dvd dvd);
 		/* member functions */
 		void On();
 		void Off();

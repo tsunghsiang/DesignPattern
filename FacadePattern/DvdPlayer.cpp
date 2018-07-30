@@ -1,5 +1,7 @@
 #include "DvdPlayer.hpp"
 
+DvdPlayer::DvdPlayer(std::string description, SPTR_Amplifier amplifier):m_description(description), m_amplifier(amplifier){}
+
 void DvdPlayer::On()
 {
 	std::cout << m_description << " on" << std::endl;

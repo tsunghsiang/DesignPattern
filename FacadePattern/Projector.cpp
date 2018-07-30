@@ -1,5 +1,7 @@
 #include "Projector.hpp"
 
+Projector::Projector(std::string description, SPTR_Dvd dvd):m_description(description), m_dvd(dvd){}
+
 void Projector::On()
 {
 	std::cout << m_description << " on" << std::endl;

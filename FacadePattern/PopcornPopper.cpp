@@ -1,5 +1,7 @@
 #include "PopcornPopper.hpp"
 
+PopcornPopper::PopcornPopper(std::string description):m_description(description){}
+
 void PopcornPopper::On()
 {
 	std::cout << m_description << " on" << std::endl;

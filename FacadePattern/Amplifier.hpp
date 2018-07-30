@@ -2,17 +2,23 @@
 #define AMPLIFIER_HPP
 
 #include <iostream>
-#include <string>
 #include <memory>
-#include "DvdPlayer.hpp"
-#include "CdPlayer.hpp"
-#include "Tuner.hpp"
+#include <string>
+
+/* Forward Declaration */
+class DvdPlayer;
+class CdPlayer;
+class Tuner;
 
 class Amplifier
 {
+	typedef std::weak_ptr<DvdPlayer> SPTR_Dvd;
+	typedef std::weak_ptr<CdPlayer> SPTR_Cd;		
+	typedef std::weak_ptr<Tuner> SPTR_Tuner;
+
 	public:
 		/* constructor */
-		Amplifier(std::string description):m_description(description){}
+		Amplifier(std::string description);
 		/* member functions */
 		void On();
 		void Off();

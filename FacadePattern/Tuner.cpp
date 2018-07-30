@@ -1,5 +1,7 @@
 #include "Tuner.hpp"
 
+Tuner::Tuner(std::string description, SPTR_Amplifier amplifier):m_description(description), m_amplifier(amplifier){}
+
 void Tuner::On()
 {
 	std::cout << m_description << " on" << std::endl;

@@ -1,5 +1,7 @@
 #include "CdPlayer.hpp"
 
+CdPlayer::CdPlayer(std::string description, SPTR_Amplifier amplifier):m_description(description), m_amplifier(amplifier){}
+
 void CdPlayer::On()
 {
 	std::cout << m_description << " on" << std::endl;

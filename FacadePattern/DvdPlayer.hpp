@@ -4,13 +4,17 @@
 #include <iostream>
 #include <memory>
 #include <string>
-#include "Amplifier.hpp"
+
+/* Forward Declaration */
+class Amplifier;
 
 class DvdPlayer
 {
+	typedef std::weak_ptr<Amplifier> SPTR_Amplifier;
+
 	public:
 		/* constructor */
-		DvdPlayer(std::string description, SPTR_Amplifier amplifier):m_description(description), m_amplifier(amplifier){};
+		DvdPlayer(std::string description, SPTR_Amplifier amplifier);
 		/* member functions */
 		void On();
 		void Off();

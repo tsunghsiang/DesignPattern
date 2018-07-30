@@ -9,7 +9,7 @@ class PopcornPopper
 {
 	public:
 		/* constructor */
-		PopcornPopper(std::string description):m_description(description){};
+		PopcornPopper(std::string description);
 		/* member functions */
 		void On();
 		void Off();
