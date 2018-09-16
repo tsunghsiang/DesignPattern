@@ -5,18 +5,16 @@
 #include <memory>
 
 int main(int argc, char * argv[])
-{
-	SPTR_Beverage beverage;
-	
-	beverage = std::make_shared<Tea>();
+{	
+	SPTR_Tea tea = std::make_shared<Tea>();
 	std::cout << "Making tea ...\n";
-	beverage->PrepareReceipe();
+	tea->PrepareReceipe();
 
 	std::cout << "\n";
 
-	beverage = std::make_shared<Coffee>();
+	SPTR_Coffee coffee = std::make_shared<Coffee>();
 	std::cout << "Making coffee ...\n";
-	beverage->PrepareReceipe();
+	coffee->PrepareReceipe();
 
 	return 0;
 }
