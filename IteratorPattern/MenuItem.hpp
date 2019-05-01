@@ -10,10 +10,9 @@ class MenuItem
 {
 	public:
 		/* Constructor */
-		MenuItem(string name, 
-				 string description, 
-				 bool vegetarian, 
-				 double price);
+		MenuItem();
+		MenuItem(std::string name, std::string description, bool vegetarian, double price);
+		//MenuItem(MenuItem & item);
 		/* Destructor */
 		~MenuItem();
 		/* Get name of the item */
@@ -21,12 +20,12 @@ class MenuItem
 		/* Get description of the item */
 		string GetDescription();
 		/* Get price of the item */
-		string GetPrice();
+		double GetPrice();
 		/* Check if the item is vegetarian */
-		string IsVegetarian();
+		bool IsVegetarian();
 	private:
-		string m_name;
-		string m_description;
+		std::string m_name;
+		std::string m_description;
 		bool m_vegetarian;
 		double m_price;	
 };

@@ -1,17 +1,19 @@
 #include "MenuItem.hpp"
 
-MenuItem::MenuItem(	string name, 
-					string description, 
+MenuItem::MenuItem(){}
+
+MenuItem::MenuItem(	std::string name, 
+					std::string description, 
 					bool vegetarian, 
-					double price)
+					double price )
 	:m_name(name), m_description(description), m_vegetarian(vegetarian), m_price(price){}
 
 MenuItem::~MenuItem(){}
 
-string MenuItem::GetName(){ return m_name; }
+std::string MenuItem::GetName(){ return m_name; }
 
-string MenuItem::GetDescription(){ return m_description; }
+std::string MenuItem::GetDescription(){ return m_description; }
 
-string MenuItem::GetPrice(){ return m_price; }
+double MenuItem::GetPrice(){ return m_price; }
 
 bool MenuItem::IsVegetarian(){ return m_vegetarian; }
