@@ -24,5 +24,7 @@ void DinerMenu::AddItem(string name, string description, bool vegetarian, double
 	}
 }
 
-MenuItem * DinerMenu::GetMenuItems(){ return m_menu_items; }
-
+Iterator<MenuItem> * DinerMenu::CreateIterator()
+{
+	return new DinerMenuIterator(m_menu_items, m_num_of_items);
+}
