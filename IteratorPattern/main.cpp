@@ -3,28 +3,30 @@
 #include "DinerMenu.hpp"
 #include "Iterator.hpp"
 #include "MenuItem.hpp"
+#include "Waitress.hpp"
 
 using namespace std;
 
 int main(int argc, char* argv[])
 {
-	PancakeHouseMenu pancake_house_menu;
-	DinerMenu diner_menu;
-	Iterator<MenuItem> * diner_iter = diner_menu.CreateIterator();
-	Iterator<MenuItem> * pancake_iter = pancake_house_menu.CreateIterator();
-	while(diner_iter->HasNext())
-	{
-		MenuItem item = diner_iter->Next();
-		cout << item.GetName() << endl;
-	}
+	PancakeHouseMenu * pancake_house_menu = new PancakeHouseMenu();
+	DinerMenu * diner_menu = new DinerMenu();
+	Waitress waitress(pancake_house_menu, diner_menu);
 
-	while(pancake_iter->HasNext())
-	{
-		MenuItem item = pancake_iter->Next();
-		cout << item.GetName() << endl;
-	}
+	std::cout << "[PrintMenu]\n";
+	waitress.PrintMenu();
+	std::cout << "\n\n[PrintBreakfastMenu]\n";
+	waitress.PrintBreakfastMenu();
+	std::cout << "\n\n[PrintLunchMenu]\n";
+	waitress.PrintLunchMenu();
+	std::cout << "\n\n[PrintVegetarianMenu]\n";
+	waitress.PrintVegetarianMenu();
+	std::cout << "\n\n[IsVegetarian]\n";
+	std::cout << "Item 'Vegetarian BLT' " << (waitress.IsItemVegetarian("Vegetarian BLT") ? "is vegetable\n" : "is not vegetable\n");
+	std::cout << "Item 'HotDog' " << (waitress.IsItemVegetarian("HotDog") ? "is vegetable\n" : "is not vegetable\n");
 
-	delete diner_iter;	
-	delete pancake_iter;
+
+	delete diner_menu;
+	delete pancake_house_menu;
 	return 0;
 }
