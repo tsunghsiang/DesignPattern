@@ -1,6 +1,6 @@
 #include "Waitress.hpp"
 
-Waitress::Waitress(PancakeHouseMenu * pancake_house_menu, DinerMenu * diner_menu): m_pancake_house_menu(pancake_house_menu), m_diner_menu(diner_menu){}
+Waitress::Waitress(Menu * pancake_house_menu, Menu * diner_menu): m_pancake_house_menu(pancake_house_menu), m_diner_menu(diner_menu){}
 
 Waitress::~Waitress(){}
 

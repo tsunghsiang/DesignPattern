@@ -1,15 +1,14 @@
 #ifndef DINER_MENU_HPP
 #define DINER_MENU_HPP
 
-#include "MenuItem.hpp"
-#include "Iterator.hpp"
+#include "Menu.hpp"
 #include "DinerMenuIterator.hpp"
 #include <exception>
 #include <string.h>
 
 using namespace std;
 
-class DinerMenu
+class DinerMenu : public Menu
 {
 	public:
 		/* Constructor */

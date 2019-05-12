@@ -1,8 +1,7 @@
 #ifndef PANCAKE_HOUSE_MENU_HPP
 #define PANCAKE_HOUSE_MENU_HPP
 
-#include "MenuItem.hpp"
-#include "Iterator.hpp"
+#include "Menu.hpp"
 #include "PancakeHouseMenuIterator.hpp"
 #include <iostream>
 #include <memory>
@@ -12,7 +11,7 @@ using namespace std;
 
 typedef vector<MenuItem> ArrayList;
 
-class PancakeHouseMenu
+class PancakeHouseMenu : public Menu
 {
 	public:
 		/* Constructor */

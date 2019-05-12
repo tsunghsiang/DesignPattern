@@ -3,7 +3,7 @@
 
 #include "PancakeHouseMenu.hpp"
 #include "DinerMenu.hpp"
-#include "Iterator.hpp"
+#include "Menu.hpp"
 #include <string.h>
 #include <iostream>
 
@@ -13,7 +13,7 @@ class Waitress
 {
 	public:
 		/* Constructor */
-		Waitress(PancakeHouseMenu * pancake_houne_menu, DinerMenu * diner_menu);
+		Waitress(Menu * pancake_houne_menu, Menu * diner_menu);
 		/* Destructor */
 		~Waitress();
 		/* Print all items on the menu */
@@ -33,8 +33,8 @@ class Waitress
 		void PrintMenu(Iterator<MenuItem> * iterator);
 		/* Print vegetable items of a certain menu */
 		void PrintVegetarianMenu(Iterator<MenuItem> * iterator);
-		PancakeHouseMenu * m_pancake_house_menu;
-		DinerMenu * m_diner_menu;
+		Menu * m_pancake_house_menu;
+		Menu * m_diner_menu;
 };
 
 #endif
