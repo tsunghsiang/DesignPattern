@@ -3,13 +3,11 @@
 
 #include "Menu.hpp"
 #include "PancakeHouseMenuIterator.hpp"
+#include "TypeDef.hpp"
 #include <iostream>
 #include <memory>
-#include <vector>
 
 using namespace std;
-
-typedef vector<MenuItem> ArrayList;
 
 class PancakeHouseMenu : public Menu
 {

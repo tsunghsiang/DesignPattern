@@ -1,6 +1,5 @@
 #include "Iterator.hpp"
-#include "MenuItem.hpp"
-#include <vector>
+#include "TypeDef.hpp"
 
 using namespace std;
 
@@ -8,7 +7,7 @@ class PancakeHouseMenuIterator : public Iterator<MenuItem>
 {
 	public:
 		/* Constructor */
-		PancakeHouseMenuIterator(vector<MenuItem>::iterator it, size_t sz);
+		PancakeHouseMenuIterator(ArrayList::iterator it, size_t sz);
 		/* Destructor */
 		~PancakeHouseMenuIterator();
 		/* Check if there are still other items */
@@ -16,7 +15,7 @@ class PancakeHouseMenuIterator : public Iterator<MenuItem>
 		/* Get next item of the list */
 		MenuItem Next();
 	private:
-		std::vector<MenuItem>::iterator m_iter;
+		ArrayList::iterator m_iter;
 		int m_sz;
 		int m_pos = 0;	
 };

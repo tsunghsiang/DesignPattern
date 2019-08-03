@@ -1,6 +1,6 @@
-#include "DinerMenu.hpp"
+#include "DinnerMenu.hpp"
 
-DinerMenu::DinerMenu()
+DinnerMenu::DinnerMenu()
 {
 	AddItem("Vegetarian BLT", "(Fakin') Bacon with lettuce & tomato on whole wheat", true, 2.99);
 	AddItem("BLT", "Bacon with lettuce & tomato on whole wheat", false, 2.99);
@@ -11,9 +11,9 @@ DinerMenu::DinerMenu()
 	// A couple of items added here
 }
 
-DinerMenu::~DinerMenu(){}
+DinnerMenu::~DinnerMenu(){}
 
-void DinerMenu::AddItem(string name, string description, bool vegetarian, double price){
+void DinnerMenu::AddItem(string name, string description, bool vegetarian, double price){
 	if(m_num_of_items >= MAX_ITEMS)
 	{
 		throw std::runtime_error("Sorry, menu is full! Can't ass item to menu");	
@@ -26,7 +26,7 @@ void DinerMenu::AddItem(string name, string description, bool vegetarian, double
 	}
 }
 
-Iterator<MenuItem> * DinerMenu::CreateIterator()
+Iterator<MenuItem> * DinnerMenu::CreateIterator()
 {
-	return new DinerMenuIterator(m_menu_items, m_num_of_items);
+	return new DinnerMenuIterator(m_menu_items, m_num_of_items);
 }

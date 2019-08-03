@@ -1,16 +1,16 @@
-#ifndef DINER_MENU_ITERATOR_HPP
-#define DINER_MENU_ITERATOR_HPP
+#ifndef DINNER_MENU_ITERATOR_HPP
+#define DINNER_MENU_ITERATOR_HPP
 
 #include "Iterator.hpp"
 #include "MenuItem.hpp"
 
-class DinerMenuIterator : public Iterator<MenuItem>
+class DinnerMenuIterator : public Iterator<MenuItem>
 {
 	public:
 		/* Constructor */
-		DinerMenuIterator(MenuItem * items, size_t size);
+		DinnerMenuIterator(MenuItem * items, size_t size);
 		/* Destructor */
-		~DinerMenuIterator();
+		~DinnerMenuIterator();
 		/* Check if there are other items */
 		bool HasNext();
 		/* Get the next item */

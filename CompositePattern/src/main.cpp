@@ -1,7 +1,4 @@
 #include <iostream>
-#include "PancakeHouseMenu.hpp"
-#include "DinerMenu.hpp"
-#include "CafeMenu.hpp"
 #include "Iterator.hpp"
 #include "MenuItem.hpp"
 #include "Waitress.hpp"
@@ -11,9 +8,9 @@ using namespace std;
 int main(int argc, char* argv[])
 {
 	PancakeHouseMenu * pancake_house_menu = new PancakeHouseMenu();
-	DinerMenu * diner_menu = new DinerMenu();
+	DinnerMenu * dinner_menu = new DinnerMenu();
 	CafeMenu * cafe_menu = new CafeMenu();
-	Waitress waitress(pancake_house_menu, diner_menu);
+	Waitress waitress(pancake_house_menu, dinner_menu, cafe_menu);
 
 	std::cout << "[PrintMenu]\n";
 	waitress.PrintMenu();
@@ -28,7 +25,7 @@ int main(int argc, char* argv[])
 	std::cout << "Item 'HotDog' " << (waitress.IsItemVegetarian("HotDog") ? "is vegetable\n" : "is not vegetable\n");
 
 	delete cafe_menu;
-	delete diner_menu;
+	delete dinner_menu;
 	delete pancake_house_menu;
 	return 0;
 }

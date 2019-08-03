@@ -1,20 +1,20 @@
-#ifndef DINER_MENU_HPP
-#define DINER_MENU_HPP
+#ifndef DINNER_MENU_HPP
+#define DINNER_MENU_HPP
 
 #include "Menu.hpp"
-#include "DinerMenuIterator.hpp"
+#include "DinnerMenuIterator.hpp"
+#include "TypeDef.hpp"
 #include <exception>
-#include <string.h>
 
 using namespace std;
 
-class DinerMenu : public Menu
+class DinnerMenu : public Menu
 {
 	public:
 		/* Constructor */
-		DinerMenu();
+		DinnerMenu();
 		/* Destructor */
-		~DinerMenu();
+		~DinnerMenu();
 		/* Add item into the item array */
 		void AddItem(string name, string description, bool vegetarian, double price);
 		/* Get iterator of DinerMenu */

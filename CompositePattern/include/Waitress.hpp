@@ -2,7 +2,8 @@
 #define WAITRESS_HPP
 
 #include "PancakeHouseMenu.hpp"
-#include "DinerMenu.hpp"
+#include "DinnerMenu.hpp"
+#include "CafeMenu.hpp"
 #include "Menu.hpp"
 #include <string.h>
 #include <iostream>
@@ -13,7 +14,7 @@ class Waitress
 {
 	public:
 		/* Constructor */
-		Waitress(Menu * pancake_houne_menu, Menu * diner_menu);
+		Waitress(Menu * pancake_houne_menu, Menu * diner_menu, Menu * cafe_menu);
 		/* Destructor */
 		~Waitress();
 		/* Print all items on the menu */
@@ -22,6 +23,8 @@ class Waitress
 		void PrintBreakfastMenu();
 		/* Print lunch items on the menu */
 		void PrintLunchMenu();
+		/* Print dinner items on the menu */
+		void PrintDinnerMenu();
 		/* Print all vagetarian items on the menu */
 		void PrintVegetarianMenu();
 		/* Check if the item is vegetable */
@@ -35,6 +38,7 @@ class Waitress
 		void PrintVegetarianMenu(Iterator<MenuItem> * iterator);
 		Menu * m_pancake_house_menu;
 		Menu * m_diner_menu;
+		Menu * m_cafe_menu;
 };
 
 #endif

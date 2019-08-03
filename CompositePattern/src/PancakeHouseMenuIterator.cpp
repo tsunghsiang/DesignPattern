@@ -1,6 +1,6 @@
 #include "PancakeHouseMenuIterator.hpp"
 
-PancakeHouseMenuIterator::PancakeHouseMenuIterator(vector<MenuItem>::iterator it, size_t sz):m_iter(it), m_sz(sz){}
+PancakeHouseMenuIterator::PancakeHouseMenuIterator(ArrayList::iterator it, size_t sz):m_iter(it), m_sz(sz){}
 
 PancakeHouseMenuIterator::~PancakeHouseMenuIterator(){}
 
