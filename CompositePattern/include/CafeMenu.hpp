@@ -3,7 +3,7 @@
 
 #include "TypeDef.hpp"
 #include "Menu.hpp"
-#include "CafeMenuIterator.hpp"
+// #include "CafeMenuIterator.hpp"
 
 using namespace std;
 
@@ -15,10 +15,10 @@ class CafeMenu : public Menu
 		/* destructor */
 		~CafeMenu();
 		/* member functions */
-		Iterator<MenuItem> * CreateIterator();
-		void AddItem(string name, string description, bool vegetarian, double price);
+		// Iterator<MenuItem> * CreateIterator();
+		// void AddItem(string name, string description, bool vegetarian, double price);
 	private:
-		HashMenu m_menu_items;
+		// HashMenu m_menu_items;
 };
 
 #endif

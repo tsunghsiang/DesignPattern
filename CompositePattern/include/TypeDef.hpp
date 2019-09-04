@@ -2,6 +2,7 @@
 #define TYPE_DEF_HPP
 
 #include "MenuItem.hpp"
+#include "MenuComponent.hpp"
 #include <map>
 #include <vector>
 #include <utility>
@@ -12,5 +13,6 @@ using namespace std;
 typedef map<string, MenuItem*> HashMenu;
 typedef pair<string, MenuItem*> HashPair;
 typedef vector<MenuItem> ArrayList;
+typedef vector<MenuComponent*> MenuComponents;
 
 #endif

@@ -3,16 +3,16 @@
 
 #include <iostream>
 #include <string>
+#include "MenuComponent.hpp"
 
 using namespace std;
 
-class MenuItem
+class MenuItem : public MenuComponent
 {
 	public:
 		/* Constructor */
 		MenuItem();
 		MenuItem(std::string name, std::string description, bool vegetarian, double price);
-		//MenuItem(MenuItem & item);
 		/* Destructor */
 		~MenuItem();
 		/* Get name of the item */
@@ -23,6 +23,8 @@ class MenuItem
 		double GetPrice();
 		/* Check if the item is vegetarian */
 		bool IsVegetarian();
+		/* Print the menu item information */
+		void Print();
 	private:
 		std::string m_name;
 		std::string m_description;

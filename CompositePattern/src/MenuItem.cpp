@@ -17,3 +17,12 @@ std::string MenuItem::GetDescription(){ return m_description; }
 double MenuItem::GetPrice(){ return m_price; }
 
 bool MenuItem::IsVegetarian(){ return m_vegetarian; }
+
+void MenuItem::Print()
+{
+	std::cout << " " << GetName();
+   	if(IsVegetarian())
+		std::cout << "(v)";
+	std::cout << ", " << GetPrice() << std::endl;
+  	std::cout << "	-- " << GetDescription() << std::endl;	
+}

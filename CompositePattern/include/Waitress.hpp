@@ -1,10 +1,11 @@
 #ifndef WAITRESS_HPP
 #define WAITRESS_HPP
 
-#include "PancakeHouseMenu.hpp"
-#include "DinnerMenu.hpp"
-#include "CafeMenu.hpp"
+// #include "PancakeHouseMenu.hpp"
+// #include "DinnerMenu.hpp"
+// #include "CafeMenu.hpp"
 #include "Menu.hpp"
+#include "TypeDef.hpp"
 #include <string.h>
 #include <iostream>
 
@@ -14,7 +15,7 @@ class Waitress
 {
 	public:
 		/* Constructor */
-		Waitress(Menu * pancake_houne_menu, Menu * diner_menu, Menu * cafe_menu);
+		Waitress(MenuComponent * menu_component);
 		/* Destructor */
 		~Waitress();
 		/* Print all items on the menu */
@@ -28,17 +29,18 @@ class Waitress
 		/* Print all vagetarian items on the menu */
 		void PrintVegetarianMenu();
 		/* Check if the item is vegetable */
-		bool IsItemVegetarian(string name);
+		// bool IsItemVegetarian(string name);
 	private:
+		MenuComponent * m_all_menus;
 		/* Check whether a certain item is vegetable or not in a menu */
-		bool IsVegetarian(Iterator<MenuItem> * iterator, string name);
+		// bool IsVegetarian(Iterator<MenuItem> * iterator, string name);
 		/* Print items of a certain menu */
-		void PrintMenu(Iterator<MenuItem> * iterator);
+		// void PrintMenu(Iterator<MenuItem> * iterator);
 		/* Print vegetable items of a certain menu */
-		void PrintVegetarianMenu(Iterator<MenuItem> * iterator);
-		Menu * m_pancake_house_menu;
-		Menu * m_diner_menu;
-		Menu * m_cafe_menu;
+		// void PrintVegetarianMenu(Iterator<MenuItem> * iterator);
+		// Menu * m_pancake_house_menu;
+		// Menu * m_diner_menu;
+		// Menu * m_cafe_menu;
 };
 
 #endif

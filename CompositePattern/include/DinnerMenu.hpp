@@ -2,7 +2,7 @@
 #define DINNER_MENU_HPP
 
 #include "Menu.hpp"
-#include "DinnerMenuIterator.hpp"
+// #include "DinnerMenuIterator.hpp"
 #include "TypeDef.hpp"
 #include <exception>
 
@@ -16,16 +16,16 @@ class DinnerMenu : public Menu
 		/* Destructor */
 		~DinnerMenu();
 		/* Add item into the item array */
-		void AddItem(string name, string description, bool vegetarian, double price);
+		// void AddItem(string name, string description, bool vegetarian, double price);
 		/* Get iterator of DinerMenu */
-		Iterator<MenuItem> * CreateIterator();
+		// Iterator<MenuItem> * CreateIterator();
 	private:
 		/* Max number of items in the item array */	
-		static const int MAX_ITEMS = 6;
+		// static const int MAX_ITEMS = 6;
 		/* Current number of items in the item array */
-		int m_num_of_items = 0;
+		// int m_num_of_items = 0;
 		/* Item array */
-		MenuItem m_menu_items[MAX_ITEMS];		
+		// MenuItem m_menu_items[MAX_ITEMS];		
 };
 
 #endif

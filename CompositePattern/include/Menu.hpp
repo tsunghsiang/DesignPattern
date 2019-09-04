@@ -2,19 +2,39 @@
 #define MENU_HPP
 
 #include "Iterator.hpp"
-#include "MenuItem.hpp"
+#include "TypeDef.hpp"
 #include <string.h>
 
 using namespace std;
 
-class Menu
+class Menu : public MenuComponent
 {
 	public:
 		/* Let client get the iterator of the menu */
-		virtual Iterator<MenuItem> * CreateIterator() = 0;
+		// virtual Iterator<MenuItem> * CreateIterator() = 0;
 		/* Add an item to the menu */
-		virtual void AddItem(string name, string description, bool vegetarian, double price) = 0;
+		// virtual void AddItem(string name, string description, bool vegetarian, double price) = 0;
+		/* Constructor */
+		Menu();
+		Menu(string name, string description);
+		/* Desctructor */
+		~Menu();
+		/* Add a menu compoent into the set */
+		void Add(MenuComponent * component);
+		/* Remove a menu component from the set */
+		void Remove(MenuComponent * component);
+		/* Get child menu component */
+		MenuComponent * GetChild(int i);
+		/* Get name of the menu */
+		std::string GetName();
+		/* Get description of the menu */
+		std::string GetDescription();
+		/* Print menu information */
+		void Print();
 	private:
+		MenuComponents m_menu_components;
+		std::string m_name;
+		std::string m_description;
 };
 
 #endif
