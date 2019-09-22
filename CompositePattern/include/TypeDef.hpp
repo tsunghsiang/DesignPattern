@@ -10,9 +10,9 @@
 
 using namespace std;
 
-typedef map<string, MenuItem*> HashMenu;
-typedef pair<string, MenuItem*> HashPair;
-typedef vector<MenuItem> ArrayList;
-typedef vector<MenuComponent*> MenuComponents;
+using HashMenu = map<string, MenuItem*>;
+using HashPair = pair<string, MenuItem*>;
+using ArrayList = vector<MenuItem>;
+using MenuComponents = vector<MenuComponent*>;
 
 #endif

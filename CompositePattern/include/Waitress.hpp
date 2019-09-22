@@ -1,9 +1,6 @@
 #ifndef WAITRESS_HPP
 #define WAITRESS_HPP
 
-// #include "PancakeHouseMenu.hpp"
-// #include "DinnerMenu.hpp"
-// #include "CafeMenu.hpp"
 #include "Menu.hpp"
 #include "TypeDef.hpp"
 #include <string.h>

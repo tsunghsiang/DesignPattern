@@ -3,6 +3,7 @@
 
 #include "Iterator.hpp"
 #include "TypeDef.hpp"
+#include "CompositeIterator.hpp"
 #include <string.h>
 
 using namespace std;
@@ -31,6 +32,8 @@ class Menu : public MenuComponent
 		std::string GetDescription();
 		/* Print menu information */
 		void Print();
+		/* Get iterator */
+		Iterator<MenuComponent> * CreateIterator();
 	private:
 		MenuComponents m_menu_components;
 		std::string m_name;

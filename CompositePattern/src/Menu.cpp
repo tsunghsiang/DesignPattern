@@ -59,3 +59,8 @@ void Menu::Print()
 		it++;
 	}
 }
+
+Iterator<MenuComponent> * Menu::CreateIterator()
+{
+	return new CompositeIterator(m_menu_components.begin(), m_menu_components.size());  
+}

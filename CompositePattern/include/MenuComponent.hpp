@@ -1,7 +1,6 @@
 #ifndef MENU_COMPONENT_HPP
 #define MENU_COMPONENT_HPP
 
-// #include "TypeDef.hpp"
 #include <exception>
 
 class MenuComponent

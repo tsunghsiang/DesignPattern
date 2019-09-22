@@ -26,3 +26,5 @@ void MenuItem::Print()
 	std::cout << ", " << GetPrice() << std::endl;
   	std::cout << "	-- " << GetDescription() << std::endl;	
 }
+
+Iterator<MenuComponent> * CreateIterator(){ return NULL; }
