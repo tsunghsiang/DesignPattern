@@ -2,10 +2,13 @@
 #define MENU_COMPONENT_HPP
 
 #include <exception>
+#include "Iterator.hpp"
 
 class MenuComponent
 {
 	public:
+		/* Virtual destructor */
+		virtual ~MenuComponent(){}
 		/* Composite methods */
 		virtual void Add(MenuComponent * component)
 		{
@@ -47,6 +50,17 @@ class MenuComponent
 		{
 			throw std::runtime_error("UnsupportedOperationException");	
 		}
+
+		virtual void PrintVegetarianMenu()
+		{
+			throw std::runtime_error("UnsupportedOperationException");
+		}
+
+		virtual Iterator<MenuComponent*> * CreateIterator()
+		{
+			throw std::runtime_error("UnsupportedOperationException");
+		}
+
 	private:
 };
 

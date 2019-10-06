@@ -27,4 +27,13 @@ void MenuItem::Print()
   	std::cout << "	-- " << GetDescription() << std::endl;	
 }
 
-Iterator<MenuComponent> * CreateIterator(){ return NULL; }
+void MenuItem::PrintVegetarianMenu()
+{
+   	if(IsVegetarian())
+	{
+		std::cout << " " << GetName();
+		std::cout << "(v)";
+		std::cout << ", " << GetPrice() << std::endl;
+  		std::cout << "	-- " << GetDescription() << std::endl;	
+	}
+}

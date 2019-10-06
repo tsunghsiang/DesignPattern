@@ -4,7 +4,6 @@
 #include <iostream>
 #include <string>
 #include "MenuComponent.hpp"
-#include "Iterator.hpp"
 
 using namespace std;
 
@@ -26,8 +25,8 @@ class MenuItem : public MenuComponent
 		bool IsVegetarian();
 		/* Print the menu item information */
 		void Print();
-		/* Get iterator */
-		Iterator<MenuComponent> * CreateIterator();
+		/* Print vegetarian menu items */
+		void PrintVegetarianMenu();
 	private:
 		std::string m_name;
 		std::string m_description;

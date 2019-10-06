@@ -6,7 +6,7 @@
 #include "MenuComponent.hpp"
 #include <iostream>
 
-class CompositeIterator : public Iterator<MenuComponent>
+class CompositeIterator : public Iterator<MenuComponent*>
 {
 	public:
 		/* Constructor */
@@ -16,7 +16,7 @@ class CompositeIterator : public Iterator<MenuComponent>
 		/* Check if there are still other elements to iterate through */
 		bool HasNext();
 		/* Get next element */
-		MenuComponent Next();
+		MenuComponent * Next();
 	private:
 		MenuComponents::iterator m_iter;
 		size_t m_num_of_components;

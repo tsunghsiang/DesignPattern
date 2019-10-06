@@ -1,11 +1,7 @@
 #include <iostream>
 #include "Menu.hpp"
 #include "TypeDef.hpp"
-// #include "CafeMenu.hpp"
-// #include "PancakeHouseMenu.hpp"
-// #include "DinnerMenu.hpp"
 #include "Waitress.hpp"
-// #include "Iterator.hpp"
 
 using namespace std;
 
@@ -45,8 +41,8 @@ int main(int argc, char* argv[])
 	diner_menu->Add(dessert_menu);
 
 	Waitress * waitress = new Waitress(all_menus);
-	waitress->PrintMenu();
+	// waitress->PrintMenu();
+	waitress->PrintVegetarianMenu();
 	delete waitress;
-
 	return 0;
 }

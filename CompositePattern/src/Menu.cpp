@@ -60,7 +60,17 @@ void Menu::Print()
 	}
 }
 
-Iterator<MenuComponent> * Menu::CreateIterator()
+void Menu::PrintVegetarianMenu()
+{
+	MenuComponents::iterator it = m_menu_components.begin();
+	while(it != m_menu_components.end())
+	{
+		(*it)->PrintVegetarianMenu();
+		it++;
+	}
+}
+
+Iterator<MenuComponent*> * Menu::CreateIterator()
 {
 	return new CompositeIterator(m_menu_components.begin(), m_menu_components.size());  
 }

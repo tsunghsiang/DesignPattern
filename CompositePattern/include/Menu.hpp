@@ -11,10 +11,6 @@ using namespace std;
 class Menu : public MenuComponent
 {
 	public:
-		/* Let client get the iterator of the menu */
-		// virtual Iterator<MenuItem> * CreateIterator() = 0;
-		/* Add an item to the menu */
-		// virtual void AddItem(string name, string description, bool vegetarian, double price) = 0;
 		/* Constructor */
 		Menu();
 		Menu(string name, string description);
@@ -32,8 +28,10 @@ class Menu : public MenuComponent
 		std::string GetDescription();
 		/* Print menu information */
 		void Print();
+		/* Print vegetarian menu */
+		void PrintVegetarianMenu();
 		/* Get iterator */
-		Iterator<MenuComponent> * CreateIterator();
+		Iterator<MenuComponent*> * CreateIterator();
 	private:
 		MenuComponents m_menu_components;
 		std::string m_name;
