@@ -2,114 +2,50 @@
 
 namespace StatePattern
 {
-	GumballMachine::GumballMachine(int cnt):m_cnt(cnt), m_state(SOLD_OUT)
+	GumballMachine::GumballMachine(int cnt):m_cnt(cnt)
 	{
-		if(m_cnt > 0)
-			m_state = NO_QUARTER;
+		m_no_quarter_state = new NoQuarterState(this);
+		m_has_quarter_state = new HasQuarterState(this);
+		m_sold_state = new SoldState(this);
+		m_sold_out_state = new SoldOutState(this);
+
+		if(GetGumballCnt() > 0)
+			m_state = m_has_quarter_state;
+		else
+			m_state = m_sold_out_state;
 	}
 
-	GumballMachine::~GumballMachine(){}
+	GumballMachine::~GumballMachine()
+	{
+		if(m_no_quarter_state)
+			delete m_no_quarter_state;
+		if(m_has_quarter_state)
+			delete m_has_quarter_state;
+		if(m_sold_state)
+			delete m_sold_state;
+		if(m_sold_out_state)
+			delete m_sold_out_state;
+	}
 
 	void GumballMachine::InsertQuarter()
 	{
-		switch(m_state)
-		{
-			case NO_QUARTER:
-				m_state = HAS_QUARTER;
-				cout << "You inserted a quarter" << endl;
-				break;
-			case HAS_QUARTER:
-				cout << "You can't insert another quarter" << endl;
-				break;
-			case SOLD_OUT:
-				cout << "YOu can't insert a quarter, the machine is sold out" << endl;
-				break;
-			case SOLD:
-				cout << "Please wait, we're ready giving you a gumball" << endl;
-				break;
-			default:
-				break;
-		}
+		m_state->InsertQuarter();
 	}
 
 	void GumballMachine::EjectQuarter()
 	{
-		switch(m_state)
-		{
-			case NO_QUARTER:
-				cout << "You haven't inserted a quarter" << endl;
-				break;
-			case HAS_QUARTER:
-				m_state = NO_QUARTER;
-				cout << "Quarter returned" << endl;
-				break;
-			case SOLD_OUT:
-				cout << "You can't eject, you haven't inserted a quarter yet" << endl;
-				break;
-			case SOLD:
-				cout << "Sorry, you already turned the crank" << endl;
-				break;
-			default:
-				break;
-		}
+		m_state->EjectQuarter();
 	}
 
 	void GumballMachine::TurnCrank()
 	{
-		switch(m_state)
-		{
-			case NO_QUARTER:
-				cout << "YOu turned but there's no quarter" << endl;
-				break;
-			case HAS_QUARTER:
-				m_state = SOLD;
-				cout << "You turned..." << endl;
-				Dispense();
-				break;
-			case SOLD_OUT:
-				cout << "You turned, but there are no gumballs" << endl;
-				break;
-			case SOLD:
-				cout << "Turning twice doesn't get you another gumball!" << endl;
-				break;
-			default:
-				break;
-		}
-	}
-
-	void GumballMachine::Dispense()
-	{
-		switch(m_state)
-		{
-			case NO_QUARTER:
-				cout << "You need to pay first" << endl;
-				break;
-			case HAS_QUARTER:
-				cout << "No gumball dispensed" << endl;
-				break;
-			case SOLD_OUT:
-				cout << "No gumball dispensed" << endl;
-				break;
-			case SOLD:
-				cout << "A gumball comes rolling out the slot" << endl;
-				m_cnt--;
-				if(m_cnt == 0)
-				{
-					m_state = SOLD_OUT;
-					cout << "Oops, out of gumballs!" << endl;
-				}
-				else
-				{
-					m_state = NO_QUARTER;
-				}
-				break;
-			default:
-				break;
-		}
+		m_state->TurnCrank();
+		m_state->Dispense();
 	}
 
 	void GumballMachine::DispInfo()
 	{
+		/*
 		cout << endl;
 		cout << "Mighty Gumball, Inc." << endl;
 		cout << "C++-enabled Standing Gumball Model #2020" << endl;
@@ -131,6 +67,25 @@ namespace StatePattern
 			default:
 				break;
 		}
-		cout << endl << endl;
+		cout << endl << endl; */
 	}
+
+	State *GumballMachine::GetNoQuarterState() { return m_no_quarter_state; }
+
+	State *GumballMachine::GetHasQuarterState() { return m_has_quarter_state; }
+
+	State *GumballMachine::GetSoldState() { return m_sold_state; }
+
+	State *GumballMachine::GetSoldOutState() { return m_sold_out_state; }
+
+	void GumballMachine::SetState(State *state) { m_state = state; }
+
+	void GumballMachine::ReleaseBall() 
+	{
+		cout << "A gumball comes rolling out the slot ..." << endl;
+		if(m_cnt > 0)	
+			m_cnt--; 
+	}
+
+	int GumballMachine::GetGumballCnt() { return m_cnt; }
 }

@@ -3,7 +3,10 @@
 
 #include <iostream>
 #include <string>
-#include "TypeDef.hpp"
+#include "NoQuarterState.hpp"
+#include "HasQuarterState.hpp"
+#include "SoldState.hpp"
+#include "SoldOutState.hpp"
 
 using namespace std;
 
@@ -23,11 +26,23 @@ namespace StatePattern
 			void Dispense();
 			/* Display machine state */
 			void DispInfo();
+			/* Other methods */
+			State *GetNoQuarterState();
+			State *GetHasQuarterState();
+			State *GetSoldState();
+			State *GetSoldOutState();
+			void SetState(State *state);
+			void ReleaseBall();
+			int GetGumballCnt();
 		private:
 			/* number of gumballs */
 			int m_cnt;
 			/* State of the gumball machine */
-			int m_state;
+			State *m_state;
+			State *m_no_quarter_state;
+			State *m_has_quarter_state;
+			State *m_sold_state;
+			State *m_sold_out_state;
 	};
 }
 

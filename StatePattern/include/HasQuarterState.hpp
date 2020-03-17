@@ -1,0 +1,27 @@
+#ifndef HAS_QUARTER_STATE_HPP
+#define HAS_QUARTER_STATE_HPP
+
+#include "State.hpp"
+
+namespace StatePattern
+{
+	class GumballMachine;
+
+	class HasQuarterState : public State
+	{
+		public:
+			/* Constructor */
+			HasQuarterState(GumballMachine *machine);
+			/* Destructor */
+			~HasQuarterState();
+			/* Behavior defined below to each action */
+			void InsertQuarter();
+			void EjectQuarter();
+			void TurnCrank();
+			void Dispense();
+		private:
+			GumballMachine *m_machine;
+	};
+}
+
+#endif
