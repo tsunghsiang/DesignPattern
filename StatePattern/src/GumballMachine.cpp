@@ -8,6 +8,7 @@ namespace StatePattern
 		m_has_quarter_state = new HasQuarterState(this);
 		m_sold_state = new SoldState(this);
 		m_sold_out_state = new SoldOutState(this);
+		m_winner_state = new WinnerState(this);
 
 		if(GetGumballCnt() > 0)
 			m_state = m_no_quarter_state;
@@ -25,6 +26,8 @@ namespace StatePattern
 			delete m_sold_state;
 		if(m_sold_out_state)
 			delete m_sold_out_state;
+		if(m_winner_state)
+			delete m_winner_state;
 	}
 
 	void GumballMachine::InsertQuarter()
@@ -62,6 +65,8 @@ namespace StatePattern
 			cout << "Machine is waiting for dispensing";
 		else if(m_state == m_sold_out_state)
 			cout << "Machine is sold out";
+		else if(m_state == m_winner_state)
+			cout << "Machine is waiting for dispensing";
 
 		cout << endl << endl;
 	}
@@ -73,6 +78,8 @@ namespace StatePattern
 	State *GumballMachine::GetSoldState() { return m_sold_state; }
 
 	State *GumballMachine::GetSoldOutState() { return m_sold_out_state; }
+
+	State *GumballMachine::GetWinnerState() { return m_winner_state; }
 
 	void GumballMachine::SetState(State *state) { m_state = state; }
 

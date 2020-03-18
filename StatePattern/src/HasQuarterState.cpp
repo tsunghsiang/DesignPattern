@@ -2,7 +2,7 @@
 
 namespace StatePattern
 {
-	HasQuarterState::HasQuarterState(GumballMachine *machine):m_machine(machine){}
+	HasQuarterState::HasQuarterState(GumballMachine *machine):m_machine(machine){ srand(time(NULL)); }
 
 	HasQuarterState::~HasQuarterState(){}
 
@@ -22,8 +22,18 @@ namespace StatePattern
 	void HasQuarterState::TurnCrank()
 	{
 		cout << "You turned..." << endl;
-		// Set GumballMachine to SoldState
-		m_machine->SetState(m_machine->GetSoldState());
+		// Determine whether machine gets into SoldState or WinnerState (10%-win probability)
+		int winner = rand() % 10;
+		if(winner == 0 && m_machine->GetGumballCnt() > 1)
+		{
+			// Set GumballMachine to WinnerState
+			m_machine->SetState(m_machine->GetWinnerState());
+		}
+		else
+		{
+			// Set GumballMachine to SoldState
+			m_machine->SetState(m_machine->GetSoldState());
+		}
 	}
 
 	void HasQuarterState::Dispense()

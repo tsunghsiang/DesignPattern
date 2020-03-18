@@ -1,8 +1,6 @@
-#ifndef HAS_QUARTER_STATE_HPP
-#define HAS_QUARTER_STATE_HPP
+#ifndef WINNER_STATE_HPP
+#define WINNER_STATE_HPP
 
-#include <cstdlib>
-#include <ctime>
 #include "State.hpp"
 #include "GumballMachine.hpp"
 
@@ -10,13 +8,13 @@ namespace StatePattern
 {
 	class GumballMachine;
 
-	class HasQuarterState : public State
+	class WinnerState : public State
 	{
 		public:
 			/* Constructor */
-			HasQuarterState(GumballMachine *machine);
+			WinnerState(GumballMachine *machine);
 			/* Destructor */
-			~HasQuarterState();
+			~WinnerState();
 			/* Behavior defined below to each action */
 			void InsertQuarter();
 			void EjectQuarter();
