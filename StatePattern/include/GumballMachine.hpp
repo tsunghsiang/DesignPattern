@@ -32,6 +32,8 @@ namespace StatePattern
 			State *GetSoldState();
 			State *GetSoldOutState();
 			void SetState(State *state);
+			void SetQuarterInserted(bool flag);
+			bool GetQuarterInserted();
 			void ReleaseBall();
 			int GetGumballCnt();
 		private:
@@ -43,6 +45,7 @@ namespace StatePattern
 			State *m_has_quarter_state;
 			State *m_sold_state;
 			State *m_sold_out_state;
+			bool m_is_quarter_inserted;
 	};
 }
 

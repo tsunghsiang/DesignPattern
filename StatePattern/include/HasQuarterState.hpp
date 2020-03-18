@@ -2,6 +2,7 @@
 #define HAS_QUARTER_STATE_HPP
 
 #include "State.hpp"
+#include "GumballMachine.hpp"
 
 namespace StatePattern
 {

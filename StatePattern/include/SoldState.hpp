@@ -6,6 +6,8 @@
 
 namespace StatePattern
 {
+	class GumballMachine;
+
 	class SoldState : public State
 	{
 		public:

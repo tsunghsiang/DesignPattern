@@ -9,7 +9,9 @@ namespace StatePattern
 	void NoQuarterState::InsertQuarter()
 	{
 		cout << "You inserted a quarter" << endl;
+		m_machine->SetQuarterInserted(true);
 		// Set GumballMachine to HasQuarterState
+		m_machine->SetState(m_machine->GetHasQuarterState());
 	}
 
 	void NoQuarterState::EjectQuarter()

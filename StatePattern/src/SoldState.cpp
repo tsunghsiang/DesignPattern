@@ -23,11 +23,18 @@ namespace StatePattern
 
 	void SoldState::Dispense()
 	{
-		cout << "A gumball comes rolling out the slot" << endl;
 		m_machine->ReleaseBall();
 		if(m_machine->GetGumballCnt() > 0)
-			;// Set GumballMachine to NoQuarterState
+		{
+			// Set GumballMachine to NoQuarterState
+			m_machine->SetState(m_machine->GetNoQuarterState());
+		}
 		else
-			;// Set GumballMachine to SoldOutState
+		{
+			cout << "Oops, out of gumballs" << endl;
+			// Set GumballMachine to SoldOutState
+			m_machine->SetState(m_machine->GetSoldOutState());
+		}
+		m_machine->SetQuarterInserted(false);
 	}
 }
