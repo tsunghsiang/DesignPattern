@@ -40,4 +40,9 @@ namespace StatePattern
 	{
 		cout << "No gumball dispensed" << endl;
 	}
+
+	void HasQuarterState::ReFill(int cnt)
+	{
+		cout << "Gumball machine has enough gumballs" << endl;
+	}
 }

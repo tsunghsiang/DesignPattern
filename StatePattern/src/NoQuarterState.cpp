@@ -28,4 +28,9 @@ namespace StatePattern
 	{
 		cout << "You need to pay first" << endl;
 	}
+
+	void NoQuarterState::ReFill(int cnt)
+	{
+		cout << "Gumball machine has enough gumballs" << endl;
+	}
 }

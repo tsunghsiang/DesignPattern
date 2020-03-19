@@ -47,4 +47,9 @@ namespace StatePattern
 		}
 		m_machine->SetQuarterInserted(false);
 	}
+
+	void WinnerState::ReFill(int cnt)
+	{
+		cout << "Gumball machine has enough gumballs" << endl;
+	}
 }

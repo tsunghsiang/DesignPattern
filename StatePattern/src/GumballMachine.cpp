@@ -50,6 +50,11 @@ namespace StatePattern
 		m_state->Dispense();
 	}
 
+	void GumballMachine::ReFill(int cnt)
+	{
+		m_state->ReFill(cnt);
+	}
+
 	void GumballMachine::DispInfo()
 	{
 		cout << endl;
@@ -92,6 +97,12 @@ namespace StatePattern
 		cout << "A gumball comes rolling out the slot ..." << endl;
 		if(m_cnt > 0)	
 			m_cnt--; 
+	}
+
+	void GumballMachine::AddBall(int cnt)
+	{
+		cout << "Add " << cnt << " balls into the machine" << endl;
+		m_cnt = cnt;
 	}
 
 	int GumballMachine::GetGumballCnt() { return m_cnt; }

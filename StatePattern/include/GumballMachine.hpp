@@ -25,6 +25,7 @@ namespace StatePattern
 			void EjectQuarter();
 			void TurnCrank();
 			void Dispense();
+			void ReFill(int cnt);
 			/* Display machine state */
 			void DispInfo();
 			/* Other methods */
@@ -37,6 +38,7 @@ namespace StatePattern
 			void SetQuarterInserted(bool flag);
 			bool GetQuarterInserted();
 			void ReleaseBall();
+			void AddBall(int cnt);
 			int GetGumballCnt();
 		private:
 			/* number of gumballs */

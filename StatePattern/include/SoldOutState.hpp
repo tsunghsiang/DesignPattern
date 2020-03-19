@@ -18,6 +18,7 @@ namespace StatePattern
 			void EjectQuarter();
 			void TurnCrank();
 			void Dispense();
+			void ReFill(int cnt);
 		private:
 			GumballMachine *m_machine;
 	};

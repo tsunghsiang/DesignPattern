@@ -32,6 +32,8 @@ int main(int argc, char *argv[])
 	machine->TurnCrank();
 	machine->InsertQuarter();
 	machine->TurnCrank();
+	/* Refill gumballs */
+	machine->ReFill(20);
 	/* Print out the state of the machine, again */
 	machine->DispInfo();
 	delete machine;
