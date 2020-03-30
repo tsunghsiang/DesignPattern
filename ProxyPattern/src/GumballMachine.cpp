@@ -1,0 +1,128 @@
+#include "GumballMachine.hpp"
+
+namespace ProxyPattern
+{
+	GumballMachine::GumballMachine(string location, int cnt):
+	m_location(location), m_cnt(cnt), m_is_quarter_inserted(false)
+	{
+		m_no_quarter_state = new NoQuarterState(this);
+		m_has_quarter_state = new HasQuarterState(this);
+		m_sold_state = new SoldState(this);
+		m_sold_out_state = new SoldOutState(this);
+		m_winner_state = new WinnerState(this);
+
+		if(GetGumballCnt() > 0)
+			m_state = m_no_quarter_state;
+		else
+			m_state = m_sold_out_state;
+	}
+
+	GumballMachine::~GumballMachine()
+	{
+		if(m_no_quarter_state)
+			delete m_no_quarter_state;
+		if(m_has_quarter_state)
+			delete m_has_quarter_state;
+		if(m_sold_state)
+			delete m_sold_state;
+		if(m_sold_out_state)
+			delete m_sold_out_state;
+		if(m_winner_state)
+			delete m_winner_state;
+	}
+
+	void GumballMachine::InsertQuarter()
+	{
+		m_state->InsertQuarter();
+	}
+
+	void GumballMachine::EjectQuarter()
+	{
+		m_state->EjectQuarter();
+	}
+
+	void GumballMachine::TurnCrank()
+	{
+		m_state->TurnCrank();
+
+		if(!GetQuarterInserted())
+			return;
+
+		m_state->Dispense();
+	}
+
+	void GumballMachine::ReFill(int cnt)
+	{
+		m_state->ReFill(cnt);
+	}
+
+	void GumballMachine::DispInfo()
+	{
+		cout << endl;
+		cout << "Mighty Gumball, Inc." << endl;
+		cout << "C++-enabled Standing Gumball Model #2020" << endl;
+		cout << "Inventory: " << m_cnt << " gumballs" << endl;
+
+		if(m_state == m_no_quarter_state)
+			cout << "Machine is waiting for quarter";
+		else if(m_state == m_has_quarter_state)
+			cout << "Machine is waiting for ejecting quarter or turning crank";
+		else if(m_state == m_sold_state)
+			cout << "Machine is waiting for dispensing";
+		else if(m_state == m_sold_out_state)
+			cout << "Machine is sold out";
+		else if(m_state == m_winner_state)
+			cout << "Machine is waiting for dispensing";
+
+		cout << endl << endl;
+	}
+
+	State *GumballMachine::GetNoQuarterState() { return m_no_quarter_state; }
+
+	State *GumballMachine::GetHasQuarterState() { return m_has_quarter_state; }
+
+	State *GumballMachine::GetSoldState() { return m_sold_state; }
+
+	State *GumballMachine::GetSoldOutState() { return m_sold_out_state; }
+
+	State *GumballMachine::GetWinnerState() { return m_winner_state; }
+
+	void GumballMachine::SetState(State *state) { m_state = state; }
+
+	void GumballMachine::SetQuarterInserted(bool flag) { m_is_quarter_inserted = flag; }
+
+	bool GumballMachine::GetQuarterInserted() { return m_is_quarter_inserted; }
+
+	void GumballMachine::ReleaseBall() 
+	{
+		cout << "A gumball comes rolling out the slot ..." << endl;
+		if(m_cnt > 0)	
+			m_cnt--; 
+	}
+
+	void GumballMachine::AddBall(int cnt)
+	{
+		cout << "Add " << cnt << " balls into the machine" << endl;
+		m_cnt = cnt;
+	}
+
+	int GumballMachine::GetGumballCnt() { return m_cnt; }
+
+	string GumballMachine::GetLocation(){ return m_location; }
+
+	string GumballMachine::GetState()
+	{
+		string state;
+		if(m_state == m_no_quarter_state)
+			state.assign("NoQuarterState\n");
+		else if(m_state == m_has_quarter_state)
+			state.assign("HasQuarterState\n");
+		else if(m_state == m_sold_state)
+			state.assign("SoldState\n");
+		else if(m_state == m_sold_out_state)
+			state.assign("SoldOutState\n");
+		else if(m_state == m_winner_state)
+			state.assign("WinnerState\n");
+		return state;
+	}
+}
